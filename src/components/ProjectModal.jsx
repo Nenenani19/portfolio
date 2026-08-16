@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 import { X, Github, ExternalLink } from "lucide-react";
 import "./ProjectModal.css";
 
@@ -12,6 +13,7 @@ export default function ProjectModal({ project, onClose, reducedMotion }) {
     if (!project) return;
 
     document.body.style.overflow = "hidden";
+    ScrollTrigger.normalizeScroll(false);
 
     const ctx = gsap.context(() => {
       if (reducedMotion) {
@@ -39,6 +41,7 @@ export default function ProjectModal({ project, onClose, reducedMotion }) {
     return () => {
       document.removeEventListener("keydown", handleKey);
       document.body.style.overflow = "";
+      if (!reducedMotion) ScrollTrigger.normalizeScroll(true);
       ctx.revert();
     };
   }, [project, onClose, reducedMotion]);
