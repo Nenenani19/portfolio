@@ -1,0 +1,65 @@
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  width: 34px;
+  height: 34px;
+  margin-left: -17px;
+  margin-top: -17px;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  transition: width 0.3s var(--ease-out), height 0.3s var(--ease-out),
+    background 0.3s var(--ease-out), margin 0.3s var(--ease-out);
+  will-change: transform;
+}
+
+.cursor__label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.25s, transform 0.25s;
+  color: var(--bg);
+}
+
+.cursor--project,
+.cursor--explore {
+  width: 74px;
+  height: 74px;
+  margin-left: -37px;
+  margin-top: -37px;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.cursor--project .cursor__label,
+.cursor--explore .cursor__label {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.cursor--link {
+  width: 50px;
+  height: 50px;
+  margin-left: -25px;
+  margin-top: -25px;
+  background: var(--accent-secondary);
+  border-color: var(--accent-secondary);
+}
+
+.cursor--link .cursor__label {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@media (max-width: 900px) {
+  .cursor {
+    display: none;
+  }
+}

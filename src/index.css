@@ -1,0 +1,274 @@
+/* ────────────────────────────────────────────────────────────
+   DESIGN TOKENS
+   Palette concept: "clearance badge" — paper/ink base with a
+   security-signal accent trio (cyan = active scan, amber =
+   pending, crimson = flagged / redacted-stamp).
+──────────────────────────────────────────────────────────── */
+
+:root {
+  --font-display: "Space Grotesk", "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-body: "Inter", sans-serif;
+
+  --bg: #eae6d9;
+  --bg-alt: #e2ddcb;
+  --surface: #f5f2e7;
+  --text: #12201b;
+  --muted: #5c665f;
+  --border: rgba(18, 32, 27, 0.16);
+  --border-strong: rgba(18, 32, 27, 0.4);
+
+  --accent: #12968a;
+  --accent-soft: rgba(18, 150, 138, 0.12);
+  --accent-2: #b9790a;
+  --accent-2-soft: rgba(185, 121, 10, 0.12);
+  --accent-3: #c23a52;
+  --accent-3-soft: rgba(194, 58, 82, 0.12);
+
+  --shadow: 0 30px 60px -30px rgba(18, 32, 27, 0.35);
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --nav-h: 76px;
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --bg: #0a100d;
+  --bg-alt: #0f1712;
+  --surface: #121c17;
+  --text: #ece7d8;
+  --muted: #8a9a92;
+  --border: rgba(236, 231, 216, 0.14);
+  --border-strong: rgba(236, 231, 216, 0.32);
+
+  --accent: #3fd9c7;
+  --accent-soft: rgba(63, 217, 199, 0.14);
+  --accent-2: #f2b134;
+  --accent-2-soft: rgba(242, 177, 52, 0.14);
+  --accent-3: #ff6b85;
+  --accent-3-soft: rgba(255, 107, 133, 0.14);
+
+  --shadow: 0 30px 70px -30px rgba(0, 0, 0, 0.6);
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.5s var(--ease-out), color 0.5s var(--ease-out);
+  overflow-x: hidden;
+}
+
+body.cursor-ready * {
+  cursor: none !important;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+h1, h2, h3, h4, p, ul, figure {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.section {
+  position: relative;
+  width: min(1240px, 92vw);
+  margin: 0 auto;
+  padding: clamp(80px, 12vw, 160px) 0;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.4rem, 6vw, 4.6rem);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+}
+
+.split-word {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* Anchor sections sit below the fixed floating navbar */
+section[id] {
+  scroll-margin-top: 110px;
+}
+
+/* ============================================================
+   TEXT SPLIT REVEAL (SplitType)
+   SplitType always emits .line / .word / .char classes, so these
+   rules apply globally to any heading that gets split. The line
+   wrapper is the overflow-hidden mask; the word inside it is what
+   actually animates. Extra bottom padding + matching negative
+   margin keeps descenders (g, y, p) from being clipped by the
+   overflow mask.
+   ============================================================ */
+
+.line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.18em;
+  margin-bottom: -0.18em;
+}
+
+.word {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.split-char {
+  display: inline-block;
+  will-change: transform;
+}
+
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 15px 26px;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  transition: transform 0.35s var(--ease-out), background 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn.primary {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+}
+
+.btn.primary:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #06110d;
+}
+
+.btn.ghost {
+  background: transparent;
+  color: var(--text);
+}
+
+.btn.ghost:hover {
+  background: var(--surface);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (max-width: 720px) {
+  .section {
+    padding: 72px 0;
+  }
+}

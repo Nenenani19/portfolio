@@ -1,0 +1,137 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 120px;
+  padding-bottom: 80px;
+  overflow: hidden;
+}
+
+.hero__grid {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: radial-gradient(var(--border) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: radial-gradient(circle at 70% 30%, black 0%, transparent 65%);
+  opacity: 0.8;
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.hero__title {
+  font-size: clamp(2.4rem, 10.5vw, 7.4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  margin: 18px 0 28px;
+  color: var(--text);
+  overflow-wrap: break-word;
+}
+
+.hero__title .line {
+  padding-bottom: 0.14em;
+  margin-bottom: -0.06em;
+}
+
+.hero__role {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: clamp(0.9rem, 1.6vw, 1.15rem);
+  color: var(--muted);
+}
+
+.hero__rotator-wrap {
+  position: relative;
+  display: inline-block;
+  height: 1.4em;
+  overflow: hidden;
+  padding: 0 12px;
+  border-radius: 6px;
+  background: var(--accent-soft);
+}
+
+.hero__rotator {
+  display: inline-block;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.hero__sub {
+  margin-top: 26px;
+  max-width: 42ch;
+  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+  color: var(--text);
+}
+
+.hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.hero__resume {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--muted);
+  border-bottom: 1px solid transparent;
+  transition: color 0.25s, border-color 0.25s;
+}
+
+.hero__resume:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.hero__scroll {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  z-index: 1;
+}
+
+.hero__scroll-icon {
+  animation: hero-bounce 1.6s ease-in-out infinite;
+}
+
+@keyframes hero-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding-top: 140px;
+  }
+  .hero__scroll {
+    display: none;
+  }
+}

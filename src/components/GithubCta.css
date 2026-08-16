@@ -1,0 +1,22 @@
+.github-cta {
+  padding: clamp(56px, 8vw, 100px) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.github-cta__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.github-cta__heading {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  max-width: 20ch;
+  margin-top: 10px;
+}
+
+.github-cta__btn {
+  white-space: nowrap;
+}
