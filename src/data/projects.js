@@ -83,6 +83,26 @@ const projects = [
     github: "https://nenenani19.github.io/java-dsa-practice/",
     live: "https://nenenani19.github.io/java-dsa-practice/",
   },
+    {
+    id: "sauryamandalam",
+    number: "05",
+    title: "Sauryamandalam",
+    category: "Interactive 3D / WebGL",
+    description:
+      "A scroll-driven 3D portfolio experience built as a journey through the solar system — the camera flies from Earth past every planet as you scroll, with real 2K textures, cinematic GSAP-driven camera moves, and a live WebGL star field rendered entirely in the browser.",
+    technologies: ["Three.js", "WebGL", "GSAP", "GSAP ScrollTrigger", "JavaScript", "HTML", "CSS"],
+    features: [
+      "Scroll-driven cinematic camera flight",
+      "Real 2K planet textures with graceful fallback",
+      "Custom animated cursor",
+      "Cinematic loading sequence",
+      "Skills and project showcase built into the journey",
+      "EmailJS-powered contact form",
+    ],
+    preview: "orbit",
+    github: "https://github.com/Nenenani19/sauryamandalam",
+    live: "https://sauryamandalam.netlify.app/",
+  },
 ];
 
 export default projects;
