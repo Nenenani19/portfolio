@@ -61,6 +61,19 @@ function PreviewArt({ kind }) {
       </div>
     );
   }
+    if (kind === "orbit") {
+    return (
+      <div className="art art--orbit">
+        <div className="art__orbit-ring art__orbit-ring--1" />
+        <div className="art__orbit-ring art__orbit-ring--2" />
+        <div className="art__orbit-ring art__orbit-ring--3" />
+        <div className="art__orbit-sun" />
+        <div className="art__orbit-planet art__orbit-planet--1" />
+        <div className="art__orbit-planet art__orbit-planet--2" />
+        <div className="art__orbit-planet art__orbit-planet--3" />
+      </div>
+    );
+  }
   return (
     <div className="art art--terminal">
       <div className="art__terminal-head">
