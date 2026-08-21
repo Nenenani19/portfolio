@@ -265,3 +265,96 @@
 .art__cursor-line {
   color: var(--text);
 }
+
+.art--orbit {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.art__orbit-sun {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 24px 6px var(--accent-soft);
+}
+
+.art__orbit-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed var(--border-strong);
+}
+
+.art__orbit-ring--1 {
+  width: 90px;
+  height: 90px;
+}
+
+.art__orbit-ring--2 {
+  width: 150px;
+  height: 150px;
+}
+
+.art__orbit-ring--3 {
+  width: 210px;
+  height: 210px;
+}
+
+.art__orbit-planet {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--accent-secondary);
+}
+
+.art__orbit-planet--1 {
+  width: 8px;
+  height: 8px;
+  top: calc(50% - 45px);
+  left: calc(50% - 4px);
+  animation: orbit-spin-1 6s linear infinite;
+  transform-origin: 4px 49px;
+}
+
+.art__orbit-planet--2 {
+  width: 10px;
+  height: 10px;
+  top: calc(50% - 75px);
+  left: calc(50% - 5px);
+  background: var(--accent);
+  animation: orbit-spin-2 10s linear infinite;
+  transform-origin: 5px 80px;
+}
+
+.art__orbit-planet--3 {
+  width: 7px;
+  height: 7px;
+  top: calc(50% - 105px);
+  left: calc(50% - 3.5px);
+  animation: orbit-spin-3 15s linear infinite;
+  transform-origin: 3.5px 108.5px;
+}
+
+@keyframes orbit-spin-1 {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes orbit-spin-2 {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes orbit-spin-3 {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .art__orbit-planet {
+    animation: none;
+  }
+}
