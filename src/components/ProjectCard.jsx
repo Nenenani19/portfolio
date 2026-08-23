@@ -74,6 +74,27 @@ function PreviewArt({ kind }) {
       </div>
     );
   }
+    if (kind === "faceid") {
+    return (
+      <div className="art art--faceid">
+        <div className="art__scan-frame">
+          <span className="art__scan-corner art__scan-corner--tl" />
+          <span className="art__scan-corner art__scan-corner--tr" />
+          <span className="art__scan-corner art__scan-corner--bl" />
+          <span className="art__scan-corner art__scan-corner--br" />
+          <svg viewBox="0 0 100 120" className="art__face-outline">
+            <path
+              d="M50 10 C25 10 15 30 15 55 C15 85 30 110 50 110 C70 110 85 85 85 55 C85 30 75 10 50 10 Z"
+              fill="none"
+              stroke="var(--accent-secondary)"
+              strokeWidth="2"
+            />
+          </svg>
+          <div className="art__scan-line" />
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="art art--terminal">
       <div className="art__terminal-head">
