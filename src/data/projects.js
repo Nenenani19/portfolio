@@ -103,6 +103,28 @@ const projects = [
     github: "https://github.com/Nenenani19/sauryamandalam",
     live: "https://sauryamandalam.netlify.app/",
   },
+    {
+    id: "face-unlock-system",
+    number: "06",
+    title: "Face Unlock System",
+    category: "Biometric Security / Machine Learning",
+    description:
+      "A biometric authentication web application that lets a user log in with their face instead of a traditional password. A camera or uploaded image is run through face detection, features are extracted into a numerical face embedding, and that embedding is compared against a securely stored one — access is granted or rejected based on how closely they match.",
+    technologies: ["Python", "Streamlit", "OpenCV", "face_recognition", "Machine Learning"],
+    features: [
+      "Face detection from camera or image",
+      "Facial feature extraction into embeddings",
+      "Encrypted embedding storage",
+      "Similarity-based match/reject decision",
+      "Streamlit web interface",
+      "Real-time authentication flow",
+    ],
+    preview: "faceid",
+    github: "https://github.com/Nenenani19/face-unlock-system",
+    live: "https://nexusunlock.streamlit.app/",
+  },
+
+
 ];
 
 export default projects;
