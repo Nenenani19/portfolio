@@ -1,4 +1,4 @@
-# Anusuri Bhaskara Suresh Swamy — Portfolio
+# Anusuri Bhaskara Suresh Swamy - My Portfolio
 
 An interactive, editorial-style developer portfolio built with **React, Vite, and GSAP** —
 custom inertia cursor, cinematic loader, word-by-word text reveals on every heading,
