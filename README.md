@@ -20,26 +20,6 @@ across phone, tablet, and desktop, with reduced-motion support built in.
 - Keyboard shortcuts: `G` → GitHub, `L` → LinkedIn (disabled while typing or with a modal open)
 - Smooth, jitter-free scrolling on touch devices via `ScrollTrigger.normalizeScroll`
 
-## 1. Fill in your details
-
-Everything personal lives in one file:
-
-```
-src/config/profile.js
-```
-
-- `resumeUrl` — currently `"YOUR_RESUME_URL_HERE"`. Point it at a hosted PDF (Google
-  Drive share link, GitHub raw link, etc).
-- `email` — your real address. The contact form and email button are disabled until this
-  is set.
-
-Project links (`github`, `live`) live in `src/data/projects.js`. Each is currently an
-empty string, so the modal shows "coming soon" instead of a dead link — fill them in as
-you publish real repos/demos.
-
-Certification links live in `src/components/Certifications.jsx` — add a `url` only once
-you have a real verification link.
-
 ## 2. Contact form — sending real email (EmailJS)
 
 The form sends messages directly through [EmailJS](https://www.emailjs.com) — a free,
